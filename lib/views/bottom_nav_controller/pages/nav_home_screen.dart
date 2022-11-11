@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/constant.dart';
+import 'package:travel_agency/views/bottom_nav_controller/details_screen.dart';
 import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_2.dart';
 import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_3.dart';
 import 'package:travel_agency/views/bottom_nav_controller/search_screen.dart';
@@ -272,7 +273,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
                   }
                   if (snapshot.hasData) {
                     List<Map> items = parseData(snapshot.data);
-                    return luxeryPackage(items);
+                    return luxuryPackage(items);
                   }
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
@@ -496,7 +497,7 @@ ListView economyPackage(List<Map<dynamic, dynamic>> items) {
   );
 }
 
-ListView luxeryPackage(List<Map<dynamic, dynamic>> items) {
+ListView luxuryPackage(List<Map<dynamic, dynamic>> items) {
   return ListView.builder(
     scrollDirection: Axis.horizontal,
     itemCount: items.length,
@@ -505,7 +506,9 @@ ListView luxeryPackage(List<Map<dynamic, dynamic>> items) {
       return Padding(
         padding: EdgeInsets.only(right: 12.w),
         child: InkWell(
-          onTap: () {},
+          onTap: () => Get.to(
+            () => DetailsScreen(detailsData: thisItem),
+          ),
           child: Container(
             width: 100.w,
             height: 180.h,
