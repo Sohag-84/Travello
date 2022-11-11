@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "64013386207",
+    "project_id": "travel-agency-72523",
+    "storage_bucket": "travel-agency-72523.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64013386207:android:df1f83eb6b68bc7e9e446a",
+        "android_client_info": {
+          "package_name": "com.example.travel_agency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64013386207-pgfsm5evusofn02jna82opmps8s73aig.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travel_agency",
+            "certificate_hash": "3e2b29a6b5060248fea5361ba97efc266cd894a3"
+          }
+        },
+        {
+          "client_id": "64013386207-eq7t0bt0f1erplmr7uufe11l930ilh9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC16pzN6H4wel2YWHBpQtXIhzuNDMk-I2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64013386207-eq7t0bt0f1erplmr7uufe11l930ilh9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
