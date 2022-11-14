@@ -20,11 +20,11 @@ class _SeeAllScreen2State extends State<SeeAllScreen2> {
   final CollectionReference _refference = firestore.collection('all-data');
 
   //queryName
-  late Future<QuerySnapshot> _futureDataLuxeryPackage;
+  late Future<QuerySnapshot> _futureDataLuxuryPackage;
 
   @override
   void initState() {
-    _futureDataLuxeryPackage =
+    _futureDataLuxuryPackage =
         _refference.where('cost', isGreaterThan: 10000).get();
 
     super.initState();
@@ -44,7 +44,7 @@ class _SeeAllScreen2State extends State<SeeAllScreen2> {
       body: Padding(
         padding: EdgeInsets.only(top: 20),
         child: FutureBuilder<QuerySnapshot>(
-          future: _futureDataLuxeryPackage,
+          future: _futureDataLuxuryPackage,
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if (snapshot.hasError) {
               return Text("Error");

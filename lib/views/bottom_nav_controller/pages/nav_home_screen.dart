@@ -12,6 +12,7 @@ import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_2.dart'
 import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_3.dart';
 import 'package:travel_agency/views/bottom_nav_controller/search_screen.dart';
 import 'package:travel_agency/views/bottom_nav_controller/see_all_screen.dart';
+import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_3.dart';
 import 'package:travel_agency/views/widgets/nav_home_categories.dart';
 
 class NavHomeScreen extends StatefulWidget {
@@ -253,10 +254,10 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
                 },
               ),
             ),
-            //Luxery package
+            //Luxury package
             SizedBox(height: 25),
             navHomeCategories(
-              categoryName: "Luxery",
+              categoryName: "Luxury",
               onClick: () => Get.to(
                 () => SeeAllScreen2(),
               ),
@@ -317,42 +318,45 @@ Widget recentlyAdded(List<Map<dynamic, dynamic>> items) {
         Map thisItem = items[index];
         return Padding(
           padding: EdgeInsets.only(right: 12.w),
-          child: Container(
-            width: 100.w,
-            height: 180.h,
-            decoration: BoxDecoration(
-              color: Color(0xFfC4C4C4),
-              borderRadius: BorderRadius.all(
-                Radius.circular(7.r),
+          child: InkWell(
+            onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
+            child: Container(
+              width: 100.w,
+              height: 180.h,
+              decoration: BoxDecoration(
+                color: Color(0xFfC4C4C4),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(7.r),
+                ),
               ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(7.r),
-                    topRight: Radius.circular(7.r),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(7.r),
+                      topRight: Radius.circular(7.r),
+                    ),
+                    child: Image.network(
+                      thisItem['list_images'][0],
+                      height: 115.h,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                  child: Image.network(
-                    thisItem['list_images'][0],
-                    height: 115.h,
-                    fit: BoxFit.cover,
+                  Text(
+                    thisItem['list_destination'],
+                    style: TextStyle(fontSize: 15.sp),
                   ),
-                ),
-                Text(
-                  thisItem['list_destination'],
-                  style: TextStyle(fontSize: 15.sp),
-                ),
-                Text(
-                  "${thisItem['list_cost']} BDT",
-                  style:
-                      TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-              ],
+                  Text(
+                    "${thisItem['list_cost']} BDT",
+                    style:
+                        TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                ],
+              ),
             ),
           ),
         );
@@ -370,7 +374,7 @@ ListView forYou(List<Map<dynamic, dynamic>> items) {
       return Padding(
         padding: EdgeInsets.only(right: 12.w),
         child: InkWell(
-          onTap: () {},
+          onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
           child: Container(
             width: 100.w,
             height: 180.h,
@@ -424,7 +428,7 @@ ListView topPlaces(List<Map<dynamic, dynamic>> items) {
       return Padding(
         padding: EdgeInsets.only(right: 5.w),
         child: InkWell(
-          onTap: () {},
+          onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
           child: Container(
             width: 80.w,
             height: 80.h,
@@ -452,7 +456,7 @@ ListView economyPackage(List<Map<dynamic, dynamic>> items) {
       return Padding(
         padding: EdgeInsets.only(right: 12.w),
         child: InkWell(
-          onTap: () {},
+          onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
           child: Container(
             width: 100.w,
             height: 180.h,

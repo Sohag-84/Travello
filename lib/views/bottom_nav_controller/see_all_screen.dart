@@ -3,7 +3,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:travel_agency/constant/constant.dart';
+import 'package:travel_agency/views/bottom_nav_controller/details_screen.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/nav_home_screen.dart';
 
 class SeeAllScreen extends StatefulWidget {
@@ -89,7 +91,7 @@ GridView forYouBuildGridview(List<Map<dynamic, dynamic>> itemList) {
     itemBuilder: (_, i) {
       Map thisItem = itemList[i];
       return InkWell(
-        onTap: (){},
+        onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
         child: Container(
           decoration: BoxDecoration(
             color: Color.fromARGB(255, 212, 196, 196),
