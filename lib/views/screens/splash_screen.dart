@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:travel_agency/constant/constant.dart';
 import 'package:travel_agency/views/auth/login_screen.dart';
 import 'package:travel_agency/views/screens/home_screen.dart';
 
@@ -19,7 +20,15 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(
       const Duration(seconds: 3),
-      () => Get.offAll(() => SignInScreen()),
+        (){
+        firebaseAuth.authStateChanges().listen((event) {
+          if(event == null && mounted){
+            Get.offAll(()=> SignInScreen());
+          }else{
+            Get.offAll(()=> HomeScreen());
+          }
+        });
+        }
     );
   }
 

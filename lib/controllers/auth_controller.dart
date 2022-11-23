@@ -17,23 +17,6 @@ class AuthController extends GetxController {
   //for button loading indicator
   var isLoading = false.obs;
 
-  late Rx<User?> _user;
-  User get user => _user.value!;
-
-  @override
-  void onReady() {
-    super.onReady();
-    _user = Rx<User?>(firebaseAuth.currentUser);
-    _user.bindStream(firebaseAuth.authStateChanges());
-  }
-
-  _setInitialScreen(User? user) {
-    if (user == null) {
-      Get.offAll(() => SignInScreen());
-    } else {
-      Get.offAll(() => HomeScreen());
-    }
-  }
 
   Future userRegistration({
     required String name,

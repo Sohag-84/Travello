@@ -9,11 +9,7 @@ import 'package:travel_agency/views/screens/splash_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp().then(
-    (value) => Get.put(
-      AuthController(),
-    ),
-  );
+  Firebase.initializeApp();
   runApp(const MyApp());
 }
 

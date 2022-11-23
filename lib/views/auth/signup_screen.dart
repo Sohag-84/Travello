@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/app_colors.dart';
 import 'package:travel_agency/constant/constant.dart';
+import 'package:travel_agency/controllers/auth_controller.dart';
 import 'package:travel_agency/views/auth/login_screen.dart';
 import 'package:travel_agency/views/styles.dart';
 import 'package:travel_agency/views/widgets/violetButton.dart';
@@ -16,6 +17,8 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _addressController = TextEditingController();
+
+  final authController = Get.put(AuthController());
 
 
   @override
