@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/package_add_next_page.dart';
 import 'package:travel_agency/views/widgets/custom_text_field.dart';
@@ -49,15 +50,34 @@ class _PackageAddPageState extends State<PackageAddPage> {
               VioletButton(
                 isLoading: false,
                 title: "Next",
-                onAction: () => Get.to(
-                  () => PackageAddNextPage(
-                    name: _nameController.text,
-                    description: _descriptionController.text,
-                    cost: int.parse(_costController.text),
-                    facility: _facilityController.text,
-                    destination: _destinationController.text,
-                  ),
-                ),
+                onAction: () {
+                  if(_nameController.text.isEmpty || _nameController.text.length <3){
+                    Fluttertoast.showToast(msg: "Name must be at least 3 character");
+                  }
+                  else if(_descriptionController.text.isEmpty || _descriptionController.text.length <3){
+                    Fluttertoast.showToast(msg: "description must be at least 3 character");
+                  }
+                  else if(_costController.text.isEmpty || _costController.text.length <3){
+                    Fluttertoast.showToast(msg: "cost must be at least 3 character");
+                  }
+                  else if(_facilityController.text.isEmpty || _facilityController.text.length <3){
+                    Fluttertoast.showToast(msg: "facility must be at least 3 character");
+                  }
+                  else if(_destinationController.text.isEmpty || _destinationController.text.length <3){
+                    Fluttertoast.showToast(msg: "destination must be at least 3 character");
+                  }
+                  else{
+                    Get.to(
+                          () => PackageAddNextPage(
+                        name: _nameController.text,
+                        description: _descriptionController.text,
+                        cost: int.parse(_costController.text),
+                        facility: _facilityController.text,
+                        destination: _destinationController.text,
+                      ),
+                    );
+                  }
+                }
               ),
             ],
           ),

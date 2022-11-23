@@ -167,8 +167,16 @@ class _PackageAddNextPageState extends State<PackageAddNextPage> {
                   isLoading: false,
                   title: "Upload",
                   onAction: () async {
-                    uploadImages();
-                    Get.back();
+                    if(_phoneNumberController.text.isEmpty || _phoneNumberController.text.length <11){
+                      Fluttertoast.showToast(msg: "phone number must be at least 11 character");
+                    }
+                    else if(_destinationDateController.text.isEmpty || _destinationDateController.text.length <3){
+                      Fluttertoast.showToast(msg: "description must be at least 5 character");
+                    }
+                    else {
+                      uploadImages();
+                      Get.back();
+                    }
                   },
                 ),
               ],
