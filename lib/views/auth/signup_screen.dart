@@ -17,13 +17,6 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _phoneController = TextEditingController();
   TextEditingController _addressController = TextEditingController();
 
-  clearTextField() {
-    _nameController.clear();
-    _passwordController.clear();
-    _emailController.clear();
-    _phoneController.clear();
-    _addressController.clear();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,18 +79,27 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                VioletButton(
-                  title: 'Create Account',
-                  onAction: () {
-                    authController.userRegistration(
-                      name: _nameController.text,
-                      email: _emailController.text,
-                      password: _passwordController.text,
-                      number: _phoneController.text.toString(),
-                      address: _addressController.text,
+                Obx(
+                  () {
+                    return VioletButton(
+                      isLoading: authController.isLoading.value,
+                      title: 'Create Account',
+                      onAction: () async{
+
+                        authController.isLoading(true);
+
+                       await authController.userRegistration(
+                          name: _nameController.text,
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                          number: _phoneController.text.toString(),
+                          address: _addressController.text,
+                        );
+
+                       authController.isLoading(false);
+                      },
                     );
-                    clearTextField();
-                  },
+                  }
                 ),
                 SizedBox(
                   height: 10.h,

@@ -164,12 +164,13 @@ class _PackageAddNextPageState extends State<PackageAddNextPage> {
                   height: 50.h,
                 ),
                 VioletButton(
+                  isLoading: false,
                   title: "Upload",
-                  onAction: () {
+                  onAction: () async {
                     uploadImages();
                     Get.back();
                   },
-                )
+                ),
               ],
             ),
           ),

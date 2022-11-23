@@ -49,12 +49,21 @@ class SignInScreen extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                VioletButton(
-                  title: "Log in",
-                  onAction: () => authController.userLogin(
-                    email: _emailController.text,
-                    password: _passwordController.text,
-                  ),
+                Obx(
+                   () {
+                    return VioletButton(
+                      isLoading: authController.isLoading.value,
+                      title: "Log in",
+                      onAction: () async{
+                        authController.isLoading(true);
+                       await authController.userLogin(
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                        );
+                       authController.isLoading(false);
+                      },
+                    );
+                  }
                 ),
                 SizedBox(height: 10.h),
                 Align(

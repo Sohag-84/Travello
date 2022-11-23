@@ -21,6 +21,7 @@ class _PackageAddPageState extends State<PackageAddPage> {
   final TextEditingController _facilityController = TextEditingController();
   final TextEditingController _destinationController = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +47,7 @@ class _PackageAddPageState extends State<PackageAddPage> {
               customTextField("Facilities", _facilityController, maxline: 4),
               customTextField("Destination", _destinationController),
               VioletButton(
+                isLoading: false,
                 title: "Next",
                 onAction: () => Get.to(
                   () => PackageAddNextPage(

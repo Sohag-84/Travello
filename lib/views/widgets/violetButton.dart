@@ -6,60 +6,51 @@ import 'package:get/get.dart';
 import 'package:travel_agency/constant/app_colors.dart';
 
 class VioletButton extends StatelessWidget {
+  bool isLoading;
   String title;
-  final Function onAction;
-  VioletButton({required this.title, required this.onAction});
-
-  RxBool _value = false.obs;
+  final VoidCallback onAction;
+  VioletButton(
+      {required this.isLoading, required this.title, required this.onAction});
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => InkWell(
-        onTap: () {
-          _value.value = true;
-          onAction();
-        },
-        child: Container(
-          height: 48.h,
-          decoration: BoxDecoration(
-            color: AppColors.violetColor,
-            borderRadius: BorderRadius.all(Radius.circular(5.r)),
-          ),
-          child: _value == false
-              ? Center(
-                  child: Text(
-                    title,
+    return InkWell(
+      onTap: onAction,
+      child: Container(
+        height: 48.h,
+        decoration: BoxDecoration(
+          color: AppColors.violetColor,
+          borderRadius: BorderRadius.all(Radius.circular(5.r)),
+        ),
+        child: isLoading == false
+            ? Center(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 17.sp,
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Please Wait",
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 17.sp,
                       color: Colors.white,
                     ),
                   ),
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Please Wait",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 17.sp,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    Transform.scale(
-                      scale: 0.4,
-                      child: CircularProgressIndicator(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-        ),
+                  SizedBox(width: 10.w),
+                  Transform.scale(
+                    scale: 0.4,
+                    child: CircularProgressIndicator(color: Colors.white),
+                  ),
+                ],
+              ),
       ),
     );
   }

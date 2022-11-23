@@ -14,6 +14,9 @@ class AuthController extends GetxController {
 
   final box = GetStorage();
 
+  //for button loading indicator
+  var isLoading = false.obs;
+
   late Rx<User?> _user;
   User get user => _user.value!;
 
