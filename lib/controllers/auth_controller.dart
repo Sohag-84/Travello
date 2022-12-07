@@ -17,7 +17,6 @@ class AuthController extends GetxController {
   //for button loading indicator
   var isLoading = false.obs;
 
-
   Future userRegistration({
     required String name,
     required String email,
@@ -105,6 +104,7 @@ class AuthController extends GetxController {
   //for logout
   signOut() async {
     await firebaseAuth.signOut();
-    Fluttertoast.showToast(msg: 'Log out sucessfull');
+    Fluttertoast.showToast(msg: 'Log out');
+    Get.offAll(() => SignInScreen());
   }
 }

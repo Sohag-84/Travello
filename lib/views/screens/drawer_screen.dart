@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:travel_agency/constant/app_strings.dart';
+import 'package:travel_agency/views/drawer_page/settings_screen.dart';
 import 'package:travel_agency/views/widgets/drawer_item.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -41,7 +43,7 @@ class DrawerScreen extends StatelessWidget {
               child: SizedBox(),
             ),
             InkWell(
-              //onTap: () => Get.toNamed(settingsScreen),
+              onTap: () => Get.to(SettingScreen()),
               child: Text(
                 "Settings",
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),

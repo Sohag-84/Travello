@@ -24,9 +24,6 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           title: 'Travel Agency',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
           home: SplashScreen(),
         );
       },
