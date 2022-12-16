@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/app_strings.dart';
+import 'package:travel_agency/views/drawer_page/privacy_policy_screen.dart';
 import 'package:travel_agency/views/drawer_page/settings/settings_screen.dart';
 import 'package:travel_agency/views/widgets/drawer_item.dart';
 
@@ -45,7 +46,10 @@ class DrawerScreen extends StatelessWidget {
               ),
               drawerItem(itemName: 'Support', onClick: null),
               SizedBox(height: 8.h),
-              drawerItem(itemName: 'Privacy', onClick: null),
+              drawerItem(
+                itemName: 'Privacy',
+                onClick: () => Get.to(() => PrivacyPolicyScreen()),
+              ),
               SizedBox(height: 8.h),
               drawerItem(itemName: 'FAQ', onClick: null),
               SizedBox(height: 8.h),
