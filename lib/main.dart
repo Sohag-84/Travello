@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:travel_agency/controllers/auth_controller.dart';
 import 'package:travel_agency/views/screens/splash_screen.dart';
 
+import 'views/drawer_page/settings/languages/components/app_languages.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp();
@@ -23,6 +25,9 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return GetMaterialApp(
           title: 'Travel Agency',
+          translations: AppLanguages(),
+          locale: Locale('en', 'US'),
+          fallbackLocale: Locale('en', 'US'),
           debugShowCheckedModeBanner: false,
           home: SplashScreen(),
         );

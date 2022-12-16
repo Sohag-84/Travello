@@ -12,7 +12,6 @@ import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_2.dart'
 import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_3.dart';
 import 'package:travel_agency/views/bottom_nav_controller/search_screen.dart';
 import 'package:travel_agency/views/bottom_nav_controller/see_all_screen.dart';
-import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_3.dart';
 import 'package:travel_agency/views/widgets/nav_home_categories.dart';
 
 class NavHomeScreen extends StatefulWidget {
@@ -60,7 +59,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 250, 245, 237),
+      backgroundColor: Color.fromARGB(255, 240, 229, 229),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -319,7 +318,9 @@ Widget recentlyAdded(List<Map<dynamic, dynamic>> items) {
         return Padding(
           padding: EdgeInsets.only(right: 12.w),
           child: InkWell(
-            onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
+            onTap: () => Get.to(
+              () => DetailsScreen(detailsData: thisItem),
+            ),
             child: Container(
               width: 100.w,
               height: 180.h,
@@ -374,7 +375,9 @@ ListView forYou(List<Map<dynamic, dynamic>> items) {
       return Padding(
         padding: EdgeInsets.only(right: 12.w),
         child: InkWell(
-          onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
+          onTap: () => Get.to(
+            () => DetailsScreen(detailsData: thisItem),
+          ),
           child: Container(
             width: 100.w,
             height: 180.h,
@@ -428,7 +431,9 @@ ListView topPlaces(List<Map<dynamic, dynamic>> items) {
       return Padding(
         padding: EdgeInsets.only(right: 5.w),
         child: InkWell(
-          onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
+          onTap: () => Get.to(
+            () => DetailsScreen(detailsData: thisItem),
+          ),
           child: Container(
             width: 80.w,
             height: 80.h,
@@ -456,7 +461,9 @@ ListView economyPackage(List<Map<dynamic, dynamic>> items) {
       return Padding(
         padding: EdgeInsets.only(right: 12.w),
         child: InkWell(
-          onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
+          onTap: () => Get.to(
+            () => DetailsScreen(detailsData: thisItem),
+          ),
           child: Container(
             width: 100.w,
             height: 180.h,
