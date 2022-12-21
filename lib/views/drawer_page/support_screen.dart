@@ -23,7 +23,7 @@ class SupportScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 20.sp,
               ),
-            ),
+             ),
             Divider(
               color: Colors.blue,
             ),
