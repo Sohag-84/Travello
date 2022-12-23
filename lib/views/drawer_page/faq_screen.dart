@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:travel_agency/constant/app_strings.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class FaqScreen extends StatelessWidget {
@@ -25,19 +24,41 @@ class FaqScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(18.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            "Few Questions and Answer"
-                .text
-                .size(28.sp)
-                .fontWeight(FontWeight.w500)
-                .makeCentered(),
-            40.h.heightBox,
-            customExpansionTile(title: faqTitle1, description: faqDescription1),
-            10.heightBox,
-            customExpansionTile(title: faqTitle2, description: faqDescription1),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              "faq"
+                  .tr
+                  .text
+                  .size(28.sp)
+                  .fontWeight(FontWeight.w500)
+                  .makeCentered(),
+              40.h.heightBox,
+              customExpansionTile(
+                  title: 'faqTitle1'.tr, description: 'faqDescription1'.tr),
+              5.h.heightBox,
+              Divider(),
+              5.h.heightBox,
+              customExpansionTile(
+                  title: 'faqTitle2'.tr, description: 'faqDescription2'.tr),
+              5.h.heightBox,
+              Divider(),
+              5.h.heightBox,
+              customExpansionTile(
+                  title: 'faqTitle3'.tr, description: 'faqDescription3'.tr),
+              5.h.heightBox,
+              Divider(),
+              5.h.heightBox,
+              customExpansionTile(
+                  title: 'faqTitle4'.tr, description: 'faqDescription4'.tr),
+              5.h.heightBox,
+              Divider(),
+              5.h.heightBox,
+              customExpansionTile(
+                  title: 'faqTitle5'.tr, description: 'faqDescription5'.tr),
+            ],
+          ),
         ),
       ),
     );

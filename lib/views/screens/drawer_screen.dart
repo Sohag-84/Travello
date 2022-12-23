@@ -46,7 +46,9 @@ class DrawerScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              drawerItem(itemName: 'Support', onClick: ()=> Get.to(()=> SupportScreen())),
+              drawerItem(
+                  itemName: 'Support',
+                  onClick: () => Get.to(() => SupportScreen())),
               SizedBox(height: 8.h),
               drawerItem(
                 itemName: 'Privacy',
@@ -65,7 +67,7 @@ class DrawerScreen extends StatelessWidget {
                 child: SizedBox(),
               ),
               InkWell(
-                onTap: () => Get.to(SettingScreen()),
+                onTap: () => Get.to(() => SettingScreen()),
                 child: Text(
                   "Settings",
                   style:

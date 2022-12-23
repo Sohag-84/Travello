@@ -17,6 +17,6 @@ Widget drawer({required VoidCallback onPressed, required String title}) {
       style: OutlinedButton.styleFrom(
         side: BorderSide(color: Colors.grey.withOpacity(1.0)),
       ),
-      onPressed: onPressed, child: title.text.black.make()
-  );
+      onPressed: onPressed,
+      child: title.text.black.make());
 }
