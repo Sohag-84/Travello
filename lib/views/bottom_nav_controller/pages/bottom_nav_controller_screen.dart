@@ -64,18 +64,15 @@ class BottomNavControllerScreen extends StatelessWidget {
                   label: "Home",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.add_outlined,
-                    size: 30,
-                  ),
+                  icon: Icon(Icons.add),
                   label: "Add",
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.favorite_outlined,
-                    size: 30,
+                  icon: Image(
+                    image: AssetImage('assets/images/direction.png'),
+                    height: 30,
                   ),
-                  label: "Favorite",
+                  label: "Tour Guide",
                 ),
               ],
             ),

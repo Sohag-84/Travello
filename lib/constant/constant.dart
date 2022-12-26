@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:travel_agency/controllers/auth_controller.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/nav_home_screen.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/package_add_page.dart';
-import 'package:travel_agency/views/bottom_nav_controller/pages/self_tour_screen.dart';
+import 'package:travel_agency/views/bottom_nav_controller/pages/tour_guide/tour_guide_screen.dart';
 
 //Page
 List pages = [
