@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:travel_agency/views/bottom_nav_controller/pages/package_add_next_page.dart';
 import 'package:travel_agency/views/widgets/custom_text_field.dart';
 import 'package:travel_agency/views/widgets/violetButton.dart';
+
+import 'package_add_next_page.dart';
 
 class PackageAddPage extends StatefulWidget {
   const PackageAddPage({Key? key}) : super(key: key);

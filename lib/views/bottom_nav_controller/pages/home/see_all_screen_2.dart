@@ -5,48 +5,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/constant.dart';
-import 'package:travel_agency/views/bottom_nav_controller/details_screen.dart';
-import 'package:travel_agency/views/bottom_nav_controller/pages/nav_home_screen.dart';
+import 'package:travel_agency/views/bottom_nav_controller/pages/home/nav_home_screen.dart';
 
-class SeeAllScreen extends StatefulWidget {
-  var compare;
-  SeeAllScreen({super.key, required this.compare});
+import 'details_screen.dart';
+
+class SeeAllScreen2 extends StatefulWidget {
+  const SeeAllScreen2({super.key,});
 
   @override
-  State<SeeAllScreen> createState() => _SeeAllScreenState();
+  State<SeeAllScreen2> createState() => _SeeAllScreen2State();
 }
 
-class _SeeAllScreenState extends State<SeeAllScreen> {
+class _SeeAllScreen2State extends State<SeeAllScreen2> {
   //collectionName
   final CollectionReference _refference = firestore.collection('all-data');
 
   //queryName
-  late Future<QuerySnapshot> _futureDataForYour;
-  late Future<QuerySnapshot> _futureDataRecentlyAdded;
-  late Future<QuerySnapshot> _futureDataTopPlaces;
+  late Future<QuerySnapshot> _futureDataLuxuryPackage;
 
   @override
   void initState() {
-    _futureDataForYour =
-        _refference.where(widget.compare, isNotEqualTo: '').get();
-    _futureDataRecentlyAdded =
-        _refference.orderBy(widget.compare, descending: true).get();
-    _futureDataTopPlaces = _refference
-        .where(widget.compare,
-            isGreaterThanOrEqualTo: 2000, isLessThanOrEqualTo: 5000)
-        .get();
-        
-    super.initState();
-  }
+    _futureDataLuxuryPackage =
+        _refference.where('cost', isGreaterThan: 10000).get();
 
-  condition() {
-    if (widget.compare == 'phone') {
-      return _futureDataForYour;
-    } else if (widget.compare == 'cost') {
-      return _futureDataTopPlaces;
-    } else if (widget.compare == 'date_time') {
-      return _futureDataRecentlyAdded;
-    }
+    super.initState();
   }
 
   @override
@@ -63,7 +45,7 @@ class _SeeAllScreenState extends State<SeeAllScreen> {
       body: Padding(
         padding: EdgeInsets.only(top: 20),
         child: FutureBuilder<QuerySnapshot>(
-          future: condition(),
+          future: _futureDataLuxuryPackage,
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if (snapshot.hasError) {
               return Text("Error");

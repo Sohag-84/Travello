@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/constant.dart';
-import 'package:travel_agency/views/bottom_nav_controller/details_screen.dart';
-import 'package:travel_agency/views/bottom_nav_controller/pages/nav_home_screen.dart';
+import 'package:travel_agency/views/bottom_nav_controller/pages/home/nav_home_screen.dart';
+
+import 'details_screen.dart';
 
 class SeeAllScreen3 extends StatefulWidget {
   const SeeAllScreen3({Key? key}) : super(key: key);

@@ -6,13 +6,14 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:travel_agency/constant/constant.dart';
-import 'package:travel_agency/views/bottom_nav_controller/details_screen.dart';
-import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_2.dart';
-import 'package:travel_agency/views/bottom_nav_controller/see_all_screen_3.dart';
-import 'package:travel_agency/views/bottom_nav_controller/search_screen.dart';
-import 'package:travel_agency/views/bottom_nav_controller/see_all_screen.dart';
+import 'package:travel_agency/services/firestore_services.dart';
 import 'package:travel_agency/views/widgets/nav_home_categories.dart';
+
+import 'details_screen.dart';
+import 'search_screen.dart';
+import 'see_all_screen.dart';
+import 'see_all_screen_2.dart';
+import 'see_all_screen_3.dart';
 
 class NavHomeScreen extends StatefulWidget {
   const NavHomeScreen({super.key});
@@ -29,32 +30,6 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
   ];
 
   final RxInt _currentIndex = 0.obs;
-
-  //queryName
-  late Future<QuerySnapshot> _futureDataForYou;
-  late Future<QuerySnapshot> _futureDataRecentlyAdded;
-  late Future<QuerySnapshot> _futureDataTopPlaces;
-  late Future<QuerySnapshot> _futureDataEconomyPackage;
-  late Future<QuerySnapshot> _futureDataLuxeryPackage;
-
-  //collectionName
-  final CollectionReference _refference = firestore.collection('all-data');
-
-  @override
-  void initState() {
-    _futureDataForYou = _refference.where('phone', isNotEqualTo: '').get();
-    _futureDataRecentlyAdded =
-        _refference.orderBy("date_time", descending: true).get();
-    _futureDataTopPlaces = _refference
-        .where('cost', isGreaterThanOrEqualTo: 2000, isLessThanOrEqualTo: 5000)
-        .get();
-    _futureDataEconomyPackage =
-        _refference.where('cost', isLessThan: 3000, isGreaterThan: 500).get();
-    _futureDataLuxeryPackage =
-        _refference.where('cost', isGreaterThan: 10000).get();
-
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +128,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(
               height: 180.h,
               child: FutureBuilder<QuerySnapshot>(
-                future: _futureDataForYou,
+                future: FirestoreServices.getForYouPackage(),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.hasError) {
@@ -183,7 +158,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(
               height: 180.h,
               child: FutureBuilder<QuerySnapshot>(
-                future: _futureDataRecentlyAdded,
+                future: FirestoreServices.getRecentlyAddedPackage(),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.hasError) {
@@ -210,7 +185,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(
               height: 80.h,
               child: FutureBuilder<QuerySnapshot>(
-                future: _futureDataTopPlaces,
+                future: FirestoreServices.getTopPlacePacakge(),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.hasError) {
@@ -236,7 +211,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(
               height: 180.h,
               child: FutureBuilder<QuerySnapshot>(
-                future: _futureDataEconomyPackage,
+                future: FirestoreServices.getEconomyPacakge(),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.hasError) {
@@ -265,7 +240,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(
               height: 180.h,
               child: FutureBuilder<QuerySnapshot>(
-                future: _futureDataLuxeryPackage,
+                future: FirestoreServices.getLuxeryPacakge(),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.hasError) {
