@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_agency/views/widgets/details_heading_description.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class DetailsScreen extends StatefulWidget {
   final Map detailsData;
   const DetailsScreen({super.key, required this.detailsData});
-
-
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -22,7 +21,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 5.h),
             Expanded(
               flex: 7,
               child: SingleChildScrollView(
@@ -30,14 +28,22 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    AspectRatio(
-                      aspectRatio: 3,
-                      child: Image.network(
-                        widget.detailsData['list_images'][0],
-                        fit: BoxFit.fill,
-                      ),
+                    //show slider
+                    VxSwiper.builder(
+                      autoPlay: true,
+                      enlargeCenterPage: true,
+                      height: 200,
+                      aspectRatio: 16 / 9,
+                      viewportFraction: 1.0,
+                      itemCount: widget.detailsData['list_images'].length,
+                      itemBuilder: (context, index) {
+                        return Image.network(
+                          widget.detailsData['list_images'][0],
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        );
+                      },
                     ),
-
                     detailsHeadingDescription(
                         title: "Description",
                         description: widget.detailsData['list_description']),
@@ -47,9 +53,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     detailsHeadingDescription(
                         title: "Destination",
                         description: widget.detailsData['list_destination']),
-                   detailsHeadingDescription(
-                        title: "Cost",
-                        description: widget.detailsData['list_cost'].toString(),),
+                    detailsHeadingDescription(
+                      title: "Cost",
+                      description: widget.detailsData['list_cost'].toString(),
+                    ),
                   ],
                 ),
               ),
