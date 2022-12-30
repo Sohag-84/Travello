@@ -83,6 +83,12 @@ class _PackageAddNextPageState extends State<PackageAddNextPage> {
         {
           "owner_name": widget.name,
           "description": widget.description,
+          "approved": false,
+          "forYou": true,
+          "topPlaces":
+              widget.cost >= 2000 && widget.cost <= 5000 ? true : false,
+          "economy": widget.cost <= 3000 ? true : false,
+          "luxury": widget.cost >= 10000 ? true : false,
           "cost": widget.cost,
           "facilities": widget.facility,
           "destination": widget.destination,
@@ -92,7 +98,7 @@ class _PackageAddNextPageState extends State<PackageAddNextPage> {
               FieldValue.arrayUnion(imageUrlList), //we create image list
         },
       ).whenComplete(
-        () => Fluttertoast.showToast(msg: "Uploaded SUccessfully."),
+        () => Fluttertoast.showToast(msg: "Uploaded Successfully."),
       );
       Get.to(
         () => HomeScreen(),
@@ -167,13 +173,15 @@ class _PackageAddNextPageState extends State<PackageAddNextPage> {
                   isLoading: false,
                   title: "Upload",
                   onAction: () async {
-                    if(_phoneNumberController.text.isEmpty || _phoneNumberController.text.length <11){
-                      Fluttertoast.showToast(msg: "phone number must be at least 11 character");
-                    }
-                    else if(_destinationDateController.text.isEmpty || _destinationDateController.text.length <3){
-                      Fluttertoast.showToast(msg: "description must be at least 5 character");
-                    }
-                    else {
+                    if (_phoneNumberController.text.isEmpty ||
+                        _phoneNumberController.text.length < 11) {
+                      Fluttertoast.showToast(
+                          msg: "phone number must be at least 11 character");
+                    } else if (_destinationDateController.text.isEmpty ||
+                        _destinationDateController.text.length < 3) {
+                      Fluttertoast.showToast(
+                          msg: "description must be at least 5 character");
+                    } else {
                       uploadImages();
                       Get.back();
                     }
