@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/constant.dart';
+import 'package:travel_agency/services/firestore_services.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/home/nav_home_screen.dart';
 
 import 'details_screen.dart';
@@ -26,7 +27,7 @@ class _SeeAllScreen2State extends State<SeeAllScreen2> {
   @override
   void initState() {
     _futureDataLuxuryPackage =
-        _refference.where('cost', isGreaterThan: 10000).get();
+        FirestoreServices.getLuxuryPackage();
 
     super.initState();
   }

@@ -47,8 +47,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     detailsHeadingDescription(
                         title: "Destination",
                         description: widget.detailsData['list_destination']),
-                    // detailsHeadingDescription("Journey Date & Time",  widget.detailsData['list_destination']),
-                    detailsHeadingDescription(
+                   detailsHeadingDescription(
                         title: "Cost",
                         description: widget.detailsData['list_cost'].toString(),),
                   ],

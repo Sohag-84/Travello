@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/constant.dart';
+import 'package:travel_agency/services/firestore_services.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/home/nav_home_screen.dart';
 
 import 'details_screen.dart';
@@ -29,13 +30,8 @@ class _SeeAllScreenState extends State<SeeAllScreen> {
   @override
   void initState() {
     _futureDataForYour =
-        _refference.where(widget.compare, isNotEqualTo: '').get();
-    _futureDataRecentlyAdded =
-        _refference.orderBy(widget.compare, descending: true).get();
-    _futureDataTopPlaces = _refference
-        .where(widget.compare,
-            isGreaterThanOrEqualTo: 2000, isLessThanOrEqualTo: 5000)
-        .get();
+        FirestoreServices.getForYouPackage();
+    _futureDataTopPlaces = FirestoreServices.getTopPlacePackage();
         
     super.initState();
   }
@@ -45,8 +41,6 @@ class _SeeAllScreenState extends State<SeeAllScreen> {
       return _futureDataForYour;
     } else if (widget.compare == 'cost') {
       return _futureDataTopPlaces;
-    } else if (widget.compare == 'date_time') {
-      return _futureDataRecentlyAdded;
     }
   }
 

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/constant.dart';
+import 'package:travel_agency/services/firestore_services.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/home/nav_home_screen.dart';
 
 import 'details_screen.dart';
@@ -18,16 +19,13 @@ class SeeAllScreen3 extends StatefulWidget {
 
 class _SeeAllScreen3State extends State<SeeAllScreen3> {
 
-  //collectionName
-  final CollectionReference _refference = firestore.collection('all-data');
 
   //queryName
   late Future<QuerySnapshot> _futureDataEconomyPackage;
 
   @override
   void initState() {
-    _futureDataEconomyPackage =
-        _refference.where('cost', isLessThan: 3000, isGreaterThan: 500).get();
+    _futureDataEconomyPackage = FirestoreServices.getEconomyPackage();
 
     super.initState();
   }

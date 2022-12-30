@@ -145,33 +145,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
                 },
               ),
             ),
-            SizedBox(height: 15.h),
-            navHomeCategories(
-              categoryName: "Recently Added",
-              onClick: () => Get.to(
-                () => SeeAllScreen(
-                  compare: 'date_time',
-                ),
-              ),
-            ),
-            SizedBox(height: 5.h),
-            SizedBox(
-              height: 180.h,
-              child: FutureBuilder<QuerySnapshot>(
-                future: FirestoreServices.getRecentlyAddedPackage(),
-                builder:
-                    (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                  if (snapshot.hasError) {
-                    return Text("Error");
-                  }
-                  if (snapshot.hasData) {
-                    List<Map> items = parseData(snapshot.data);
-                    return recentlyAdded(items);
-                  }
-                  return Center(child: CircularProgressIndicator());
-                },
-              ),
-            ),
+
             SizedBox(height: 15.h),
             navHomeCategories(
               categoryName: "Top Places",
@@ -185,7 +159,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(
               height: 80.h,
               child: FutureBuilder<QuerySnapshot>(
-                future: FirestoreServices.getTopPlacePacakge(),
+                future: FirestoreServices.getTopPlacePackage(),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.hasError) {
@@ -211,7 +185,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(
               height: 180.h,
               child: FutureBuilder<QuerySnapshot>(
-                future: FirestoreServices.getEconomyPacakge(),
+                future: FirestoreServices.getEconomyPackage(),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.hasError) {
@@ -240,7 +214,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(
               height: 180.h,
               child: FutureBuilder<QuerySnapshot>(
-                future: FirestoreServices.getLuxeryPacakge(),
+                future: FirestoreServices.getLuxuryPackage(),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.hasError) {
@@ -280,65 +254,6 @@ List<Map> parseData(QuerySnapshot querySnapshot) {
           })
       .toList();
   return listItems;
-}
-
-Widget recentlyAdded(List<Map<dynamic, dynamic>> items) {
-  return SizedBox(
-    height: 180.h,
-    child: ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: 5,
-      itemBuilder: (_, index) {
-        Map thisItem = items[index];
-        return Padding(
-          padding: EdgeInsets.only(right: 12.w),
-          child: InkWell(
-            onTap: () => Get.to(
-              () => DetailsScreen(detailsData: thisItem),
-            ),
-            child: Container(
-              width: 100.w,
-              height: 180.h,
-              decoration: BoxDecoration(
-                color: Color(0xFfC4C4C4),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(7.r),
-                ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(7.r),
-                      topRight: Radius.circular(7.r),
-                    ),
-                    child: Image.network(
-                      thisItem['list_images'][0],
-                      height: 115.h,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Text(
-                    thisItem['list_destination'],
-                    style: TextStyle(fontSize: 15.sp),
-                  ),
-                  Text(
-                    "${thisItem['list_cost']} BDT",
-                    style:
-                        TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w600),
-                  ),
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    ),
-  );
 }
 
 ListView forYou(List<Map<dynamic, dynamic>> items) {
