@@ -21,22 +21,22 @@ class ProfileScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          FormField(
+          formField(
             controller: controller.nameController,
             inputType: TextInputType.name,
             hint: "name",
           ),
-          FormField(
+          formField(
             controller: controller.emailController,
             inputType: TextInputType.emailAddress,
             hint: "email",
           ),
-          FormField(
+          formField(
             controller: controller.phoneController,
             inputType: TextInputType.phone,
             hint: "phone",
           ),
-          FormField(
+          formField(
             controller: controller.addressController,
             inputType: TextInputType.text,
             hint: "address",
@@ -83,7 +83,7 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
-Widget FormField({controller, inputType, hint}) {
+Widget formField({controller, inputType, hint}) {
   return TextFormField(
     controller: controller,
     keyboardType: inputType,

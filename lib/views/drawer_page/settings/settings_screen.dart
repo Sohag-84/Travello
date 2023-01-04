@@ -5,8 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/controllers/auth_controller.dart';
 import 'package:travel_agency/views/drawer_page/settings/profile_screen.dart';
-import 'package:travel_agency/views/widgets/drawer_item.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class SettingScreen extends StatelessWidget {
   SettingScreen({Key? key}) : super(key: key);
@@ -55,7 +53,6 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.white.withOpacity(.90),
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
@@ -66,16 +63,16 @@ class SettingScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => Get.to(()=> ProfileScreen()),
             icon: Icon(Icons.edit),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () => authController.signOut(),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "Logout",
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600),
               ),
             ),
           )
@@ -119,8 +116,6 @@ class SettingScreen extends StatelessWidget {
                         PopupMenuItem(
                           child: InkWell(
                             onTap: () {
-                              // controller.approvedPackage(docId: data.id);
-                              // Fluttertoast.showToast(msg: "Approved");
                             },
                             child: Row(
                               children: [
