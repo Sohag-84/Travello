@@ -21,3 +21,4 @@ var firebaseStorage = FirebaseStorage.instance;
 
 //Firebase collection name
 const allPackages = "all-data";
+const usersCollection = "users";

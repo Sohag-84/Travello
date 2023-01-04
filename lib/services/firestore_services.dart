@@ -36,4 +36,18 @@ class FirestoreServices {
         .where('approved', isEqualTo: true)
         .get();
   }
+
+  //for get user information
+  static getUserInfo({required uid}) {
+    return firestore.collection(usersCollection).doc(uid).snapshots();
+  }
+
+  //for get login user uploaded packages
+  static getUserUploadedPackages({required uid}) {
+    return firestore
+        .collection(allPackages)
+        .where('approved', isEqualTo: true)
+        .where('uid', isEqualTo: uid)
+        .snapshots();
+  }
 }

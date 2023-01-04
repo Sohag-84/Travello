@@ -10,7 +10,7 @@ class ProfileController extends GetxController {
   var addressController = TextEditingController();
 
   updateData({required uid}) {
-    var ref = firestore.collection('users').doc(uid);
+    var ref = firestore.collection(usersCollection).doc(uid);
     try {
       ref
           .update({

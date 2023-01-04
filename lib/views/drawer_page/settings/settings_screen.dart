@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:travel_agency/constant/constant.dart';
 import 'package:travel_agency/controllers/auth_controller.dart';
+import 'package:travel_agency/services/firestore_services.dart';
 import 'package:travel_agency/views/drawer_page/settings/profile_screen.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -63,7 +66,7 @@ class SettingScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () => Get.to(()=> ProfileScreen()),
+            onPressed: () => Get.to(() => ProfileScreen()),
             icon: Icon(Icons.edit),
           ),
           TextButton(
@@ -72,7 +75,8 @@ class SettingScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "Logout",
-                style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600),
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
               ),
             ),
           )
@@ -81,12 +85,25 @@ class SettingScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ListTile(
-            leading: Icon(Icons.person, size: 50.h),
-            title: Text("Sohag"),
-            subtitle: Text("sohag@gmail.com"),
+          StreamBuilder(
+            stream: FirestoreServices.getUserInfo(
+              uid: firebaseAuth.currentUser!.uid,
+            ),
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                var data = snapshot.data;
+                return ListTile(
+                  leading: Icon(Icons.person, size: 50.h),
+                  title: Text(data["name"].toString()),
+                  subtitle: Text(data['email'].toString()),
+                );
+              }
+            },
           ),
-          Divider(),
           Padding(
             padding: EdgeInsets.all(12.h),
             child: Column(
@@ -102,35 +119,52 @@ class SettingScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView(
-              children: List.generate(
-                30,
-                (index) {
-                  return ListTile(
-                    leading: Image.network(
-                        "https://www.travelmate.com.bd/wp-content/uploads/2022/02/Nikli-Haor-Road-1000x530.jpg"),
-                    title: Text("Nikli"),
-                    subtitle: Text("2399 BDT"),
-                    trailing: PopupMenuButton(
-                      itemBuilder: (context)=>[
-                        PopupMenuItem(
-                          child: InkWell(
-                            onTap: () {
-                            },
-                            child: Row(
-                              children: [
-                                Icon(Icons.delete),
-                                SizedBox(width: 10.w),
-                                Text("Delete"),
-                              ],
-                            ),
+            child: StreamBuilder(
+              stream: FirestoreServices.getUserUploadedPackages(
+                uid: firebaseAuth.currentUser!.uid,
+              ),
+              builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  return ListView(
+                    children: List.generate(
+                      snapshot.data!.docs.length,
+                      (index) {
+                        var data = snapshot.data!.docs[index];
+                        return ListTile(
+                          leading: Image.network(
+                            "${data['gallery_img'][0]}",
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.fill,
                           ),
-                        ),
-                      ],
+                          title: Text("${data['destination']}"),
+                          subtitle: Text("${data['cost']}BDT"),
+                          trailing: PopupMenuButton(
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.delete),
+                                      SizedBox(width: 10.w),
+                                      Text("Delete"),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
                   );
-                },
-              ),
+                }
+              },
             ),
           ),
         ],
