@@ -55,53 +55,90 @@ class SettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white.withOpacity(.90),
+      //backgroundColor: Colors.white.withOpacity(.90),
       appBar: AppBar(
-        //backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
           "Setting".tr,
+          style: TextStyle(color: Colors.black),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.edit),
+          ),
+          TextButton(
+            onPressed: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Logout",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          )
+        ],
       ),
-      body: Padding(
-        padding: EdgeInsets.only(left: 25.w, right: 25.w, top: 20.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ListTile(
+            leading: Icon(Icons.person, size: 50.h),
+            title: Text("Sohag"),
+            subtitle: Text("sohag@gmail.com"),
+          ),
+          Divider(),
+          Padding(
+            padding: EdgeInsets.all(12.h),
+            child: Column(
               children: [
                 Text(
-                  "darkMode".tr,
-                  style:
-                      TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w400),
-                ),
-                Obx(
-                  () => Switch(
-                    value: darkMode.value,
-                    onChanged: (bool value) {
-                      darkMode.value = value;
-                    },
+                  "Packages:",
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ],
             ),
-            10.h.heightBox,
-            drawerItem(
-                itemName: "Profile".tr,
-                onClick: () {
-                  Get.to(() => ProfileScreen());
-                }),
-            10.h.heightBox,
-            drawerItem(
-                itemName: "languages".tr,
-                onClick: () {
-                  changeLanguage(context);
-                }),
-            10.h.heightBox,
-            drawer(onPressed: () => authController.signOut(), title: "logout".tr),
-          ],
-        ),
+          ),
+          Expanded(
+            child: ListView(
+              children: List.generate(
+                30,
+                (index) {
+                  return ListTile(
+                    leading: Image.network(
+                        "https://www.travelmate.com.bd/wp-content/uploads/2022/02/Nikli-Haor-Road-1000x530.jpg"),
+                    title: Text("Nikli"),
+                    subtitle: Text("2399 BDT"),
+                    trailing: PopupMenuButton(
+                      itemBuilder: (context)=>[
+                        PopupMenuItem(
+                          child: InkWell(
+                            onTap: () {
+                              // controller.approvedPackage(docId: data.id);
+                              // Fluttertoast.showToast(msg: "Approved");
+                            },
+                            child: Row(
+                              children: [
+                                Icon(Icons.delete),
+                                SizedBox(width: 10.w),
+                                Text("Delete"),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

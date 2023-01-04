@@ -93,6 +93,7 @@ class _PackageAddNextPageState extends State<PackageAddNextPage> {
           "facilities": widget.facility,
           "destination": widget.destination,
           "phone": _phoneNumberController.text,
+          "uid": firebaseAuth.currentUser!.uid,
           'date_time': DateTime.now(),
           "gallery_img":
               FieldValue.arrayUnion(imageUrlList), //we create image list
