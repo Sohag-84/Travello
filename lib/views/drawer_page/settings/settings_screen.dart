@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/constant/constant.dart';
 import 'package:travel_agency/controllers/auth_controller.dart';
@@ -147,7 +148,12 @@ class SettingScreen extends StatelessWidget {
                             itemBuilder: (context) => [
                               PopupMenuItem(
                                 child: InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    FirestoreServices.deletePackage(
+                                        docId: data.id);
+                                    Fluttertoast.showToast(msg: "delete");
+                                    Get.back();
+                                  },
                                   child: Row(
                                     children: [
                                       Icon(Icons.delete),

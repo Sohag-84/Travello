@@ -50,4 +50,9 @@ class FirestoreServices {
         .where('uid', isEqualTo: uid)
         .snapshots();
   }
+
+    //for delete package:
+ static deletePackage({required docId}) {
+   return firestore.collection('all-data').doc(docId).delete();
+  }
 }
