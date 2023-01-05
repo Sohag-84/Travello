@@ -17,43 +17,7 @@ class SettingScreen extends StatelessWidget {
 
   final authController = Get.put(AuthController());
 
-  Future changeLanguage(context) async {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Select your language!"),
-        content: SizedBox(
-          height: 200.h,
-          child: Column(
-            children: [
-              TextButton(
-                onPressed: () {
-                  Get.updateLocale(
-                    const Locale('bn', 'BD'),
-                  );
-                  Get.back();
-                },
-                child: const Text("Bangla"),
-              ),
-              SizedBox(
-                width: 10.w,
-              ),
-              TextButton(
-                onPressed: () {
-                  Get.updateLocale(
-                    const Locale('en', 'US'),
-                  );
-                  Get.back();
-                },
-                child: const Text("English"),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
