@@ -26,7 +26,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     //show slider
                     VxSwiper.builder(
@@ -44,18 +44,34 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         );
                       },
                     ),
-                    detailsHeadingDescription(
-                        title: "Description",
-                        description: widget.detailsData['list_description']),
-                    detailsHeadingDescription(
-                        title: "Facilities",
-                        description: widget.detailsData['list_facilities']),
-                    detailsHeadingDescription(
-                        title: "Destination",
-                        description: widget.detailsData['list_destination']),
-                    detailsHeadingDescription(
-                      title: "Cost",
-                      description: widget.detailsData['list_cost'].toString(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          widget.detailsData['list_destination']
+                              .toString()
+                              .text
+                              .size(22.sp)
+                              .fontWeight(FontWeight.w700)
+                              .make(),
+                          "${widget.detailsData['list_cost']} BDT"
+                              .text
+                              .color(Colors.green)
+                              .fontWeight(FontWeight.w500)
+                              .size(18.sp)
+                              .make(),
+                          15.h.heightBox,
+                          detailsHeadingDescription(
+                            title: "Description:",
+                            description: widget.detailsData['list_description'],
+                          ),
+                          detailsHeadingDescription(
+                            title: "Facilities:",
+                            description: widget.detailsData['list_facilities'],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Widget customTextField(title, TextEditingController nameController, {maxline}) {
+Widget customTextField(title, TextEditingController nameController, {maxline,onlyRead}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -23,6 +23,7 @@ Widget customTextField(title, TextEditingController nameController, {maxline}) {
         ),
         child: TextField(
           controller: nameController,
+          readOnly: onlyRead,
           maxLines: maxline,
           decoration: InputDecoration(
             border: InputBorder.none,

@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:travel_agency/constant/constant.dart';
+import 'package:travel_agency/controllers/profile_controller.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/bottom_nav_controller_screen.dart';
 import 'package:travel_agency/views/screens/drawer_screen.dart';
 
@@ -24,9 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isDeviceConnected = false;
   bool isAlertSet = false;
 
+  final controller = Get.put(ProfileController());
+
   @override
   void initState() {
     getConnectivity();
+    // need for add package screen
+    controller.getUserData(uid: firebaseAuth.currentUser!.uid);
     super.initState();
   }
 

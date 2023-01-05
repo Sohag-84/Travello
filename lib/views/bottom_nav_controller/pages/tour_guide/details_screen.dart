@@ -41,16 +41,22 @@ class SelfTourDetailsScreen extends StatelessWidget {
                         .size(22.sp)
                         .fontWeight(FontWeight.w700)
                         .make(),
+                    "${data['cost']} BDT"
+                        .text
+                        .color(Colors.green)
+                        .fontWeight(FontWeight.w500)
+                        .size(18)
+                        .make(),
                     17.h.heightBox,
                     "বিবরনঃ".text.bold.size(20.sp).make(),
                     5.h.heightBox,
                     data['description'].toString().text.make(),
                     22.h.heightBox,
-                    "কিভাবে যাবেনঃ".text.bold.size(22.sp).make(),
+                    "কিভাবে যাবেনঃ".text.bold.size(20.sp).make(),
                     5.h.heightBox,
                     data['how_to_go'].toString().text.make(),
                     22.h.heightBox,
-                    "কোথায় থাকবেনঃ".text.bold.size(22.sp).make(),
+                    "কোথায় থাকবেনঃ".text.bold.size(20.sp).make(),
                     5.h.heightBox,
                     data['live'].toString().text.make(),
                     10.h.heightBox,

@@ -2,29 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget detailsHeadingDescription({required title, required description}) {
-  return Padding(
-    padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 22.sp,
-          ),
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        title,
+        style: TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 22.sp,
         ),
-        Text(
+      ),
+      SizedBox(height: 5.h),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 12.w,vertical: 2.h),
+        child: Text(
           description,
           style: TextStyle(
             fontWeight: FontWeight.w300,
-            fontSize: 18.sp,
+            fontSize: 17.sp,
           ),
         ),
-        SizedBox(
-          height: 10.h,
-        ),
-      ],
-    ),
+      ),
+      SizedBox(
+        height: 10.h,
+      ),
+    ],
   );
 }
