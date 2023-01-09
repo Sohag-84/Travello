@@ -46,4 +46,12 @@ Map<String, String> english = {
   //package details screen
   'description': "Description",
   'facilites': "Facilities",
+
+  //package add screen
+  'ownerName': "Owner Name",
+  'phoneNumber': "Phone Number",
+  "cost": "Cost",
+  "destination": "Destination",
+  "selectImage": "Select Image",
+  'submit': "Submit"
 };

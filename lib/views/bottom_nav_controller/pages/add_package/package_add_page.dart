@@ -130,38 +130,38 @@ class _PackageAddPageState extends State<PackageAddPage> {
                 ),
                 SizedBox(height: 20.h),
                 customTextField(
-                  "Owner Name",
+                  "ownerName".tr,
                   nameController,
                   onlyRead: true,
                 ),
                 customTextField(
-                  "Phone Number",
+                  "phoneNumber".tr,
                   phoneController,
                   onlyRead: true,
                 ),
                 customTextField(
-                  "Cost",
+                  "cost".tr,
                   _costController,
                   onlyRead: false,
                 ),
                 customTextField(
-                  "Destination",
+                  "destination".tr,
                   _destinationController,
                   onlyRead: false,
                 ),
                 customTextField(
-                  "Description",
+                  "description".tr,
                   _descriptionController,
                   onlyRead: false,
                 ),
                 customTextField(
-                  "Facilities",
+                  "facilites".tr,
                   _facilityController,
                   maxline: 4,
                   onlyRead: false,
                 ),
                 Text(
-                  "Choose Images",
+                  "selectImage".tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 18.sp,
@@ -210,7 +210,7 @@ class _PackageAddPageState extends State<PackageAddPage> {
                 Obx(() {
                   return VioletButton(
                     isLoading: isLoading.value,
-                    title: "Submit",
+                    title: "submit".tr,
                     onAction: () async {
                       if (_descriptionController.text.isEmpty ||
                           _descriptionController.text.length < 3) {

@@ -46,4 +46,12 @@ Map<String, String> bangla = {
   //package details screen
   'description': "বিবরন",
   'facilites': "সুবিধা সমূহ",
+
+  //package add screen
+  'ownerName': "নাম",
+  'phoneNumber': "মোবাইল নাম্বার",
+  "cost": "খরচ",
+  "destination": "গন্তব্য",
+  "selectImage": "ছবি সিলেক্ট করুন",
+  'submit': "সাবমিট"
 };
