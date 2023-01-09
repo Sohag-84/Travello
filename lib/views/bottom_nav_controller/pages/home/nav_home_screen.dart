@@ -10,7 +10,6 @@ import 'package:travel_agency/services/firestore_services.dart';
 import 'package:travel_agency/views/widgets/nav_home_categories.dart';
 
 import 'details_screen.dart';
-import 'search_screen.dart';
 import 'see_all_screen.dart';
 import 'see_all_screen_2.dart';
 import 'see_all_screen_3.dart';
@@ -78,44 +77,6 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
                 position: _currentIndex.value.toDouble(),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: 20.w,
-                right: 20.w,
-                top: 10.h,
-                bottom: 10.h,
-              ),
-              child: InkWell(
-                onTap: () => Get.to(
-                  () => SearchScreen(),
-                ),
-                child: Container(
-                  height: 45.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white38,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(6.r),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 20.w),
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.search_outlined,
-                          size: 20.w,
-                        ),
-                        SizedBox(width: 10.w),
-                        Text(
-                          "Search for your next tour",
-                          style: TextStyle(fontSize: 15.sp),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
             navHomeCategories(
               categoryName: "For You",
               onClick: () => Get.to(
@@ -176,7 +137,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             SizedBox(height: 25.h),
             //Economy package
             navHomeCategories(
-              categoryName: "Economy",
+              categoryName: "economy".tr,
               onClick: () => Get.to(
                 () => SeeAllScreen3(),
               ),
@@ -205,7 +166,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
             //Luxury package
             SizedBox(height: 25),
             navHomeCategories(
-              categoryName: "Luxury",
+              categoryName: "luxury".tr,
               onClick: () => Get.to(
                 () => SeeAllScreen2(),
               ),

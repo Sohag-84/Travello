@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -211,7 +210,7 @@ class _PackageAddPageState extends State<PackageAddPage> {
                 Obx(() {
                   return VioletButton(
                     isLoading: isLoading.value,
-                    title: "Next",
+                    title: "Submit",
                     onAction: () async {
                       if (_descriptionController.text.isEmpty ||
                           _descriptionController.text.length < 3) {

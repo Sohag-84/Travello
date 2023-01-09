@@ -46,26 +46,24 @@ class DrawerScreen extends StatelessWidget {
                 height: 20.h,
               ),
               drawerItem(
-                  itemName: 'Support',
-                  onClick: () => Get.to(() => SupportScreen())),
+                  itemName: 'support'.tr,
+                  onClick: () => Get.to(() => SupportScreen()),),
               SizedBox(height: 8.h),
               drawerItem(
-                itemName: 'Privacy',
+                itemName: 'privacy'.tr,
                 onClick: () => Get.to(() => PrivacyPolicyScreen()),
               ),
               SizedBox(height: 8.h),
               drawerItem(
-                itemName: 'FAQ',
+                itemName: 'faq'.tr,
                 onClick: () => Get.to(() => FaqScreen()),
               ),
               SizedBox(height: 8.h),
-              drawerItem(itemName: 'Rate us', onClick: null),
-              SizedBox(height: 8.h),
-              drawerItem(itemName: 'How to use', onClick: null),
+              drawerItem(itemName: 'howToUse'.tr, onClick: null),
               SizedBox(
                 width: 150.w,
                 child: ExpansionTile(
-                  title: Text("Language"),
+                  title: Text("language".tr),
                   tilePadding: EdgeInsets.all(0.0),
                   childrenPadding: EdgeInsets.all(0.0),
                   children: [
@@ -80,7 +78,7 @@ class DrawerScreen extends StatelessWidget {
                               Get.updateLocale(const Locale('bn', 'BD'));
                             },
                           ),
-                          Text("Bangla"),
+                          Text("bangla".tr),
                         ],
                       );
                     }),
@@ -95,7 +93,7 @@ class DrawerScreen extends StatelessWidget {
                               Get.updateLocale(const Locale('en', 'US'));
                             },
                           ),
-                          Text("English"),
+                          Text("english".tr),
                         ],
                       );
                     }),
@@ -106,7 +104,7 @@ class DrawerScreen extends StatelessWidget {
               InkWell(
                 onTap: () => Get.to(() => SettingScreen()),
                 child: Text(
-                  "Settings",
+                  "settings".tr,
                   style:
                       TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
                 ),

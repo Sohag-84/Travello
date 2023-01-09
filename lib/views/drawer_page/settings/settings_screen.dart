@@ -17,7 +17,6 @@ class SettingScreen extends StatelessWidget {
 
   final authController = Get.put(AuthController());
 
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +25,7 @@ class SettingScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          "Setting".tr,
+          "settings".tr,
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -39,7 +38,7 @@ class SettingScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "Logout",
+                "logout".tr,
                 style:
                     TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
               ),
@@ -74,7 +73,7 @@ class SettingScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Packages:",
+                  "package".tr,
                   style: TextStyle(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w500,
@@ -122,7 +121,7 @@ class SettingScreen extends StatelessWidget {
                                     children: [
                                       Icon(Icons.delete),
                                       SizedBox(width: 10.w),
-                                      Text("Delete"),
+                                      Text("delete".tr),
                                     ],
                                   ),
                                 ),

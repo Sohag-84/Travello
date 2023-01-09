@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:travel_agency/views/widgets/details_heading_description.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -63,11 +64,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               .make(),
                           15.h.heightBox,
                           detailsHeadingDescription(
-                            title: "Description:",
+                            title: "description".tr,
                             description: widget.detailsData['list_description'],
                           ),
                           detailsHeadingDescription(
-                            title: "Facilities:",
+                            title: "facilites".tr,
                             description: widget.detailsData['list_facilities'],
                           ),
                         ],

@@ -44,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
           SizedBox(height: 15),
           VioletButton(
             isLoading: false,
-            title: "Update",
+            title: "update".tr,
             onAction: () {
               controller.updateData(uid: firebaseAuth.currentUser!.uid);
             },
@@ -58,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text("profile".tr),
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:travel_agency/constant/app_strings.dart';
 import 'package:travel_agency/constant/constant.dart';
@@ -55,24 +56,24 @@ class BottomNavControllerScreen extends StatelessWidget {
               elevation: 0,
               onTap: (value) => _currentIndex.value = value,
               currentIndex: _currentIndex.value,
-              items: const [
+              items: [
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home_outlined,
                     size: 30,
                   ),
-                  label: "Home",
+                  label: "home".tr,
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.add),
-                  label: "Add",
+                  label: "add".tr,
                 ),
                 BottomNavigationBarItem(
                   icon: Image(
                     image: AssetImage('assets/images/direction.png'),
                     height: 30,
                   ),
-                  label: "Tour Guide",
+                  label: "tourGuide".tr,
                 ),
               ],
             ),

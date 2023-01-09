@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 Widget navHomeCategories({required String categoryName, required onClick}) {
   return Padding(
@@ -16,7 +17,7 @@ Widget navHomeCategories({required String categoryName, required onClick}) {
         InkWell(
           onTap: onClick,
           child: Text(
-            "See All",
+            "seeMore".tr,
             style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
