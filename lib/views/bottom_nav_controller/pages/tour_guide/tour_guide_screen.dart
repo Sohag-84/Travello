@@ -16,7 +16,7 @@ class SelfTourScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: StreamBuilder(
-          stream: firestore.collection('self-package').snapshots(),
+          stream: firestore.collection("tour-guide").snapshots(),
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if(!snapshot.hasData){
               return Center(child: CircularProgressIndicator());
@@ -46,7 +46,7 @@ class SelfTourScreen extends StatelessWidget {
                               topRight: Radius.circular(7.r),
                             ),
                             child: Image.network(
-                              data[index]['images'][0],
+                              data[index]['gallery_img'][0],
                               height: 145.h,
                               width: double.infinity,
                               fit: BoxFit.fill,
@@ -61,7 +61,7 @@ class SelfTourScreen extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "${data[index]['cost']} টাকা",
+                            "${data[index]['cost'].toString()} টাকা",
                             style:
                             TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w400),
                           ),

@@ -20,10 +20,10 @@ class SelfTourDetailsScreen extends StatelessWidget {
                 height: 200,
                 aspectRatio: 16 / 9,
                 viewportFraction: 1.0,
-                itemCount: data["images"].length,
+                itemCount: data["gallery_img"].length,
                 itemBuilder: (context, index) {
                   return Image.network(
-                    "${data['images'][index]}",
+                    "${data['gallery_img'][index]}",
                     width: double.infinity,
                     fit: BoxFit.cover,
                   );
@@ -41,7 +41,7 @@ class SelfTourDetailsScreen extends StatelessWidget {
                         .size(22.sp)
                         .fontWeight(FontWeight.w700)
                         .make(),
-                    "${data['cost']} BDT"
+                    "${data['cost']} টাকা"
                         .text
                         .color(Colors.green)
                         .fontWeight(FontWeight.w500)
