@@ -42,12 +42,11 @@ class DrawerScreen extends StatelessWidget {
                 "Travel Agency",
                 style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w300),
               ),
-              SizedBox(
-                height: 20.h,
-              ),
+              SizedBox(height: 20.h),
               drawerItem(
-                  itemName: 'support'.tr,
-                  onClick: () => Get.to(() => SupportScreen()),),
+                itemName: 'support'.tr,
+                onClick: () => Get.to(() => SupportScreen()),
+              ),
               SizedBox(height: 8.h),
               drawerItem(
                 itemName: 'privacy'.tr,
@@ -55,11 +54,12 @@ class DrawerScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               drawerItem(
-                itemName: 'faq'.tr,
-                onClick: () => Get.to(() => FaqScreen()),
-              ),
+                  itemName: 'faq'.tr, onClick: () => Get.to(() => FaqScreen())),
               SizedBox(height: 8.h),
-              drawerItem(itemName: 'howToUse'.tr, onClick: null),
+              drawerItem(
+                itemName: 'howToUse'.tr,
+                onClick: null,
+              ),
               SizedBox(
                 width: 150.w,
                 child: ExpansionTile(

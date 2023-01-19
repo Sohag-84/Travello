@@ -63,8 +63,10 @@ class _PackageAddPageState extends State<PackageAddPage> {
           // upload to stroage
           File imageFile = File(multipleImages![i].path);
 
-          UploadTask uploadTask =
-              firebaseStorage.ref("Images").putFile(imageFile);
+          UploadTask uploadTask = firebaseStorage
+              .ref('${firebaseAuth.currentUser!.email}')
+              .child(multipleImages![i].name)
+              .putFile(imageFile);
           TaskSnapshot snapshot = await uploadTask;
           String imageUrl = await snapshot.ref.getDownloadURL();
           imageUrlList.add(imageUrl);
