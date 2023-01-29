@@ -53,5 +53,6 @@ Map<String, String> english = {
   "cost": "Cost",
   "destination": "Destination",
   "selectImage": "Select Image",
-  'submit': "Submit"
+  'submit': "Submit",
+  "adPackageMessage": adPackageMessageEng,
 };

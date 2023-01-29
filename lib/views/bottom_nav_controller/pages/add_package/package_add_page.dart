@@ -125,7 +125,7 @@ class _PackageAddPageState extends State<PackageAddPage> {
               children: [
                 SizedBox(height: 30.h),
                 Text(
-                  "If you have any problems, please contact us. We are at your service all the time.",
+                  "adPackageMessage".tr,
                   style: TextStyle(
                     fontSize: 24.sp,
                   ),

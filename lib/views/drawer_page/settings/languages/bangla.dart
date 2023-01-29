@@ -53,5 +53,6 @@ Map<String, String> bangla = {
   "cost": "খরচ",
   "destination": "গন্তব্য",
   "selectImage": "ছবি সিলেক্ট করুন",
-  'submit': "সাবমিট"
+  'submit': "সাবমিট",
+  'adPackageMessage': adPackageMessageBan,
 };

@@ -1,5 +1,5 @@
 class AppStrings {
-  static const appName = 'ABC';
+  static const appName = 'Travello';
 }
 
 const privacyPolicyText =
@@ -47,3 +47,9 @@ const faqBanDesc3 =
 const faqBanDesc4 = "";
 const faqBanDesc5 =
     "যদি কোনো গ্রাহক তাদের ভ্রমণের সময় অসুস্থ বোধ করেন, আমাদের অকুতোভয় নেতা তাদের চিকিৎসা সেবা পেতে সহায়তা করবেন। গ্রাহকের দ্বারা অনুরোধ করা হলে এর মধ্যে COVID-19 পরীক্ষার সুবিধা অন্তর্ভুক্ত থাকতে পারে এবং আমরা সতর্কতা হিসাবে গ্রাহকদের বাড়ি থেকে তাদের নিজস্ব RAT পরীক্ষা আনতে উৎসাহিত করি।";
+
+//add tour package screen
+const adPackageMessageEng =
+    "We are always in service.  Please feel free for any queries.";
+const adPackageMessageBan =
+    "আমরা সর্বদা সেবায় নিয়োজিত। অনুগ্রহ করে নির্দ্বিধায় জানান আপনার জিজ্ঞাসা ";

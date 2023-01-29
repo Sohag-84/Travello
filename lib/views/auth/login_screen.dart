@@ -59,12 +59,20 @@ class _SignInScreenState extends State<SignInScreen> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 80.h),
+          padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Center(
+                  child: Image.asset(
+                    "assets/logo/logo2.png",
+                    height: 150,
+                    width: 150,
+                  ),
+                ),
+                SizedBox(height: 70.h),
                 Text(
                   "Login\nTo Your Account",
                   style: TextStyle(
@@ -104,34 +112,34 @@ class _SignInScreenState extends State<SignInScreen> {
                   );
                 }),
                 SizedBox(height: 10.h),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "--OR--",
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        "assets/icons/google.png",
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Image.asset("assets/icons/facebook.png"),
-                    ),
-                  ],
-                ),
+                // Align(
+                //   alignment: Alignment.center,
+                //   child: Text(
+                //     "--OR--",
+                //     style: TextStyle(
+                //       fontSize: 16.sp,
+                //       fontWeight: FontWeight.w300,
+                //     ),
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 10.h,
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     IconButton(
+                //       onPressed: () {},
+                //       icon: Image.asset(
+                //         "assets/icons/google.png",
+                //       ),
+                //     ),
+                //     IconButton(
+                //       onPressed: () {},
+                //       icon: Image.asset("assets/icons/facebook.png"),
+                //     ),
+                //   ],
+                // ),
                 SizedBox(
                   height: 10.h,
                 ),

@@ -20,18 +20,23 @@ class SignUpScreen extends StatelessWidget {
 
   final authController = Get.put(AuthController());
 
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 80.h),
+          padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h),
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Center(
+                    child: Image.asset(
+                  "assets/logo/logo2.png",
+                  height: 150,
+                  width: 150,
+                )),
                 Text(
                   "Create\nYour Account",
                   style: TextStyle(
@@ -82,62 +87,25 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                Obx(
-                  () {
-                    return VioletButton(
-                      isLoading: authController.isLoading.value,
-                      title: 'Create Account',
-                      onAction: () async{
+                Obx(() {
+                  return VioletButton(
+                    isLoading: authController.isLoading.value,
+                    title: 'Create Account',
+                    onAction: () async {
+                      authController.isLoading(true);
 
-                        authController.isLoading(true);
-
-                       await authController.userRegistration(
-                          name: _nameController.text,
-                          email: _emailController.text,
-                          password: _passwordController.text,
-                          number: _phoneController.text.toString(),
-                          address: _addressController.text,
-                        );
-
-                       authController.isLoading(false);
-                      },
-                    );
-                  }
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "--OR--",
-                    style: TextStyle(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        "assets/icons/google.png",
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Image.asset("assets/icons/facebook.png"),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
+                      await authController.userRegistration(
+                        name: _nameController.text,
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                        number: _phoneController.text.toString(),
+                        address: _addressController.text,
+                      );
+                      authController.isLoading(false);
+                    },
+                  );
+                }),
+                SizedBox(height: 10.h),
                 RichText(
                   text: TextSpan(
                     text: "Already an user?  ",

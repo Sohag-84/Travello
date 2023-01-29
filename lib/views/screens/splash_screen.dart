@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(
-                'assets/logo/logo.png',
+                'assets/logo/logo2.png',
                 height: 230.h,
                 width: 230.w,
                 fit: BoxFit.contain,
@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
               SizedBox(height: 10.h),
               const CircularProgressIndicator(),
               Text(
-                "Travel Agency",
+                "Travello",
                 style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
               ),
               SizedBox(height: 40.h),
