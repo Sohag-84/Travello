@@ -89,11 +89,27 @@ class _SignInScreenState extends State<SignInScreen> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: AppStyles().textFieldDecoration("E-mail Address"),
                 ),
-                TextFormField(
-                  controller: _passwordController,
-                  keyboardType: TextInputType.text,
-                  decoration: AppStyles().textFieldDecoration("Enter Password"),
-                ),
+                Obx(() {
+                  return TextFormField(
+                    controller: _passwordController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      hintText: "Enter your password",
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          authController.isPasswordHiden.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          authController.isPasswordHiden.value =!
+                              authController.isPasswordHiden.value;
+                        },
+                      ),
+                    ),
+                    obscureText: authController.isPasswordHiden.value,
+                  );
+                }),
                 SizedBox(
                   height: 40.h,
                 ),
@@ -112,7 +128,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   );
                 }),
                 SizedBox(height: 20.h),
-
                 RichText(
                   text: TextSpan(
                     text: "Don’t have registered yet?  ",

@@ -56,7 +56,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 80.h,
+                  height: 80.h
                 ),
                 TextFormField(
                   controller: _nameController,
@@ -68,11 +68,27 @@ class SignUpScreen extends StatelessWidget {
                   keyboardType: TextInputType.emailAddress,
                   decoration: AppStyles().textFieldDecoration("E-mail Address"),
                 ),
-                TextFormField(
-                  controller: _passwordController,
-                  keyboardType: TextInputType.text,
-                  decoration: AppStyles().textFieldDecoration("Enter Password"),
-                ),
+                Obx(() {
+                  return TextFormField(
+                    controller: _passwordController,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      hintText: "Enter your password",
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          authController.isPasswordHiden.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          authController.isPasswordHiden.value =!
+                              authController.isPasswordHiden.value;
+                        },
+                      ),
+                    ),
+                    obscureText: authController.isPasswordHiden.value,
+                  );
+                }),
                 TextFormField(
                   controller: _phoneController,
                   keyboardType: TextInputType.text,

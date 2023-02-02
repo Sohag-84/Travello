@@ -10,12 +10,9 @@ import 'package:travel_agency/views/auth/login_screen.dart';
 import 'package:travel_agency/views/screens/home_screen.dart';
 
 class AuthController extends GetxController {
-  static AuthController instance = Get.find();
-
-  final box = GetStorage();
-
   //for button loading indicator
   var isLoading = false.obs;
+  RxBool isPasswordHiden = true.obs;
 
   Future userRegistration({
     required String name,
@@ -38,7 +35,6 @@ class AuthController extends GetxController {
         var authCredential = userCredential.user;
         if (authCredential!.uid.isNotEmpty) {
           Fluttertoast.showToast(msg: 'Registration Successfull');
-          box.write('uid', authCredential.uid);
           Get.to(() => HomeScreen());
         } else {
           Fluttertoast.showToast(msg: 'Something is wrong!');
@@ -82,7 +78,7 @@ class AuthController extends GetxController {
         var authCredential = userCredential.user;
         if (authCredential!.uid.isNotEmpty) {
           Fluttertoast.showToast(msg: 'Login Successfull');
-          box.write('uid', authCredential.uid);
+
           Get.to(() => HomeScreen());
         } else {
           Fluttertoast.showToast(msg: 'Something is wrong!');
