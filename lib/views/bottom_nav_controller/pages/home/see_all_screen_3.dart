@@ -35,8 +35,6 @@ class _SeeAllScreen3State extends State<SeeAllScreen3> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 223, 231, 229),
       appBar: AppBar(
-        //backgroundColor: Colors.white,
-        elevation: 0,
         title: Text(
          "seeAll".tr,
         ),

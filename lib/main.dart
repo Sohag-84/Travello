@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ui';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,6 +33,14 @@ class MyApp extends StatelessWidget {
           locale: Locale('en', 'US'),
           fallbackLocale: Locale('en', 'US'),
           debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            appBarTheme: AppBarTheme(
+              elevation: 0,
+              color: Colors.transparent,
+              iconTheme: IconThemeData(color: Colors.black),
+              titleTextStyle: TextStyle(color: Colors.black,fontSize: 20.sp)
+            )
+          ),
           home: SplashScreen(),
         );
       },

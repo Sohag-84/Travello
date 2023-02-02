@@ -25,8 +25,6 @@ class BottomNavControllerScreen extends StatelessWidget {
           decoration: BoxDecoration(),
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.white,
-              elevation: 0,
               title: Text(
                 AppStrings.appName,
                 style: TextStyle(color: Colors.black),

@@ -11,7 +11,9 @@ import 'package:travel_agency/views/bottom_nav_controller/pages/home/nav_home_sc
 import 'details_screen.dart';
 
 class SeeAllScreen2 extends StatefulWidget {
-  const SeeAllScreen2({super.key,});
+  const SeeAllScreen2({
+    super.key,
+  });
 
   @override
   State<SeeAllScreen2> createState() => _SeeAllScreen2State();
@@ -26,8 +28,7 @@ class _SeeAllScreen2State extends State<SeeAllScreen2> {
 
   @override
   void initState() {
-    _futureDataLuxuryPackage =
-        FirestoreServices.getLuxuryPackage();
+    _futureDataLuxuryPackage = FirestoreServices.getLuxuryPackage();
 
     super.initState();
   }
@@ -37,8 +38,6 @@ class _SeeAllScreen2State extends State<SeeAllScreen2> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 223, 231, 229),
       appBar: AppBar(
-        //backgroundColor: Colors.white,
-        elevation: 0,
         title: Text(
           "seeAll".tr,
         ),
@@ -74,7 +73,9 @@ GridView forYouBuildGridview(List<Map<dynamic, dynamic>> itemList) {
     itemBuilder: (_, i) {
       Map thisItem = itemList[i];
       return InkWell(
-        onTap: ()=> Get.to(()=> DetailsScreen(detailsData: thisItem),),
+        onTap: () => Get.to(
+          () => DetailsScreen(detailsData: thisItem),
+        ),
         child: Container(
           decoration: BoxDecoration(
             color: Color.fromARGB(255, 212, 196, 196),
