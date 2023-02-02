@@ -39,6 +39,8 @@ Map<String, String> bangla = {
   'home': "হোম",
   'add': "এড",
   'tourGuide': "ভ্রমণ সহায়িকা",
+  'allPackage': "প্যাকেজ সমূহ",
+  "topPlace": "শীর্ষ স্থানীয়",
   'seeMore': "আরও",
   'economy': "ইকোনমি",
   'luxury': "লাক্সারি",
@@ -55,4 +57,33 @@ Map<String, String> bangla = {
   "selectImage": "ছবি সিলেক্ট করুন",
   'submit': "সাবমিট",
   'adPackageMessage': adPackageMessageBan,
+
+  //support screen
+  'supportMessage': supportMessageBan,
+
+  //privacy policy
+  "intro": introBan,
+  "heading": headingBan,
+  "title1": title1Ban,
+  "title2": title2Ban,
+  "title3": title3Ban,
+  "title4": title4Ban,
+  "title5": title5Ban,
+  "title6": title6Ban,
+  "title7": title7Ban,
+  "title8": title8Ban,
+
+  "desc1": desc1Ban,
+  "desc2": desc2Ban,
+  "desc3": desc3Ban,
+  "desc4": desc4Ban,
+  "desc5": desc5Ban,
+  "desc6": desc6Ban,
+  "desc7": desc7Ban,
+  "desc8": desc8Ban,
+
+  "conclusion": conclusionBan,
+
+
+  "seeAll": "সবগুলি দেখুন"
 };

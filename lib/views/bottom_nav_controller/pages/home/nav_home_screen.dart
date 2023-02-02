@@ -36,6 +36,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
       backgroundColor: Color.fromARGB(255, 240, 229, 229),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             SizedBox(height: 10.h),
@@ -78,7 +79,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
               ),
             ),
             navHomeCategories(
-              categoryName: "For You",
+              categoryName: "allPackage".tr,
               onClick: () => Get.to(
                 () => SeeAllScreen(
                   compare: "phone",
@@ -109,7 +110,7 @@ class _NavHomeScreenState extends State<NavHomeScreen> {
 
             SizedBox(height: 15.h),
             navHomeCategories(
-              categoryName: "Top Places",
+              categoryName: "topPlace".tr,
               onClick: () => Get.to(
                 () => SeeAllScreen(
                   compare: "cost",

@@ -20,7 +20,7 @@ class SupportScreen extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "If you have any problems, please contact us . We are at your service all the time.",
+              "supportMessage".tr,
               style: TextStyle(
                 fontSize: 20.sp,
               ),

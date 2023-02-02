@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:travel_agency/constant/constant.dart';
 import 'package:travel_agency/services/firestore_services.dart';
 import 'package:travel_agency/views/bottom_nav_controller/pages/home/nav_home_screen.dart';
 
@@ -39,7 +38,7 @@ class _SeeAllScreen3State extends State<SeeAllScreen3> {
         //backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          "See All",
+         "seeAll".tr,
         ),
       ),
       body: Padding(

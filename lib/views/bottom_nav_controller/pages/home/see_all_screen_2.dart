@@ -40,7 +40,7 @@ class _SeeAllScreen2State extends State<SeeAllScreen2> {
         //backgroundColor: Colors.white,
         elevation: 0,
         title: Text(
-          "See All",
+          "seeAll".tr,
         ),
       ),
       body: Padding(

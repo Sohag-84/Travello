@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Are u sure to close this app?"),
+          title: Text("Are you sure to close this app?"),
           content: Row(
             children: [
               ElevatedButton(

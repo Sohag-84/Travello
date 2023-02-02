@@ -39,6 +39,8 @@ Map<String, String> english = {
   'home': "Home",
   'add': "Add",
   'tourGuide': "Travel Guide",
+  'allPackage': "All Packages",
+  "topPlace": 'Top Places',
   'seeMore': "See More",
   'economy': "Economy",
   'luxury': "Luxury",
@@ -55,4 +57,32 @@ Map<String, String> english = {
   "selectImage": "Select Image",
   'submit': "Submit",
   "adPackageMessage": adPackageMessageEng,
+
+  //support screen
+  'supportMessage': supportMessageEng,
+
+  //privacy policy
+  "intro": introEng,
+  "heading": headingEng,
+  "title1": title1Eng,
+  "title2": title2Eng,
+  "title3": title3Eng,
+  "title4": title4Eng,
+  "title5": title5Eng,
+  "title6": title6Eng,
+  "title7": title7Eng,
+  "title8": title8Eng,
+
+  "desc1": desc1Eng,
+  "desc2": desc2Eng,
+  "desc3": desc3Eng,
+  "desc4": desc4Eng,
+  "desc5": desc5Eng,
+  "desc6": desc6Eng,
+  "desc7": desc7Eng,
+  "desc8": desc8Eng,
+
+  "conclusion": conclusionEng,
+
+  "seeAll": "See All"
 };

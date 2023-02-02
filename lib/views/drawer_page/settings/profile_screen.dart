@@ -30,6 +30,7 @@ class ProfileScreen extends StatelessWidget {
             controller: controller.emailController,
             inputType: TextInputType.emailAddress,
             hint: "email",
+            readOnly: true
           ),
           formField(
             controller: controller.phoneController,
@@ -83,10 +84,11 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
-Widget formField({controller, inputType, hint}) {
+Widget formField({controller, inputType, hint, readOnly = false}) {
   return TextFormField(
     controller: controller,
     keyboardType: inputType,
+    readOnly: readOnly,
     decoration: AppStyles().textFieldDecoration(hint),
   );
 }

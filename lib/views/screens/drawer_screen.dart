@@ -54,7 +54,11 @@ class DrawerScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               drawerItem(
-                  itemName: 'faq'.tr, onClick: () => Get.to(() => FaqScreen())),
+                itemName: 'faq'.tr,
+                onClick: () => Get.to(
+                  () => FaqScreen(),
+                ),
+              ),
               SizedBox(height: 8.h),
               drawerItem(
                 itemName: 'howToUse'.tr,

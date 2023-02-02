@@ -111,38 +111,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     },
                   );
                 }),
-                SizedBox(height: 10.h),
-                // Align(
-                //   alignment: Alignment.center,
-                //   child: Text(
-                //     "--OR--",
-                //     style: TextStyle(
-                //       fontSize: 16.sp,
-                //       fontWeight: FontWeight.w300,
-                //     ),
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: 10.h,
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     IconButton(
-                //       onPressed: () {},
-                //       icon: Image.asset(
-                //         "assets/icons/google.png",
-                //       ),
-                //     ),
-                //     IconButton(
-                //       onPressed: () {},
-                //       icon: Image.asset("assets/icons/facebook.png"),
-                //     ),
-                //   ],
-                // ),
-                SizedBox(
-                  height: 10.h,
-                ),
+                SizedBox(height: 20.h),
+
                 RichText(
                   text: TextSpan(
                     text: "Don’t have registered yet?  ",
