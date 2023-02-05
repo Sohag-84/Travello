@@ -9,7 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:travel_agency/views/screens/splash_screen.dart';
 
-import 'views/drawer_page/settings/languages/components/app_languages.dart';
+import 'views/drawer_page/languages/components/app_languages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

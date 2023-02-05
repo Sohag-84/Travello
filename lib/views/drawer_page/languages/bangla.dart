@@ -2,6 +2,8 @@ import '../../../../constant/app_strings.dart';
 
 Map<String, String> bangla = {
   //drawer screen
+  "appName": "ট্র্যাভেলো",
+  "slogan": "একটি ধানের শীষের উপর একটি শিশির বিন্দু",
   "support": "সাপোর্ট",
   'privacy': "প্রাইভেসি",
   'faq': "প্রশ্ন এবং উত্তর",

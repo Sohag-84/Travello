@@ -35,14 +35,14 @@ class DrawerScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                AppStrings.appName,
+                "appName".tr,
                 style: TextStyle(fontSize: 32.sp, fontWeight: FontWeight.w500),
               ),
               Text(
-                "Travel Agency",
-                style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w300),
+                "slogan".tr,
+                style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w300),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 40.h),
               drawerItem(
                 itemName: 'support'.tr,
                 onClick: () => Get.to(() => SupportScreen()),
@@ -58,11 +58,6 @@ class DrawerScreen extends StatelessWidget {
                 onClick: () => Get.to(
                   () => FaqScreen(),
                 ),
-              ),
-              SizedBox(height: 8.h),
-              drawerItem(
-                itemName: 'howToUse'.tr,
-                onClick: null,
               ),
               SizedBox(
                 width: 150.w,

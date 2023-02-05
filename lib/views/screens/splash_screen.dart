@@ -49,9 +49,18 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               SizedBox(height: 10.h),
               const CircularProgressIndicator(),
-              Text(
-                "Travello",
-                style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+              Column(
+                children: [
+                  Text(
+                    "Travello",
+                    style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(height: 5.h),
+                  Text(
+                    "A dew drops on a grain of rice",
+                    style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w600),
+                  ),
+                ],
               ),
               SizedBox(height: 40.h),
             ],

@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:travel_agency/constant/app_colors.dart';
 import 'package:travel_agency/constant/constant.dart';
 import 'package:travel_agency/views/widgets/custom_text_field.dart';
 import 'package:travel_agency/views/widgets/violetButton.dart';
@@ -179,6 +180,7 @@ class _PackageAddPageState extends State<PackageAddPage> {
                   ),
                   child: Center(
                     child: FloatingActionButton(
+                      backgroundColor: AppColors.violetColor,
                       onPressed: () => multipleImagePicker(),
                       child: const Icon(Icons.add),
                     ),

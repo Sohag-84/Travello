@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:travel_agency/views/drawer_page/settings/languages/bangla.dart';
-import 'package:travel_agency/views/drawer_page/settings/languages/english.dart';
+import 'package:travel_agency/views/drawer_page/languages/bangla.dart';
+import 'package:travel_agency/views/drawer_page/languages/english.dart';
 
 class AppLanguages extends Translations{
 

@@ -12,7 +12,6 @@ import 'package:travel_agency/views/screens/home_screen.dart';
 class AuthController extends GetxController {
   //for button loading indicator
   var isLoading = false.obs;
-  RxBool isPasswordHiden = true.obs;
 
   Future userRegistration({
     required String name,

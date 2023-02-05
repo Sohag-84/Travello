@@ -15,6 +15,8 @@ import 'package:travel_agency/views/auth/signup_screen.dart';
 import 'package:travel_agency/views/styles.dart';
 import 'package:travel_agency/views/widgets/violetButton.dart';
 
+import '../../controllers/text_field_controller.dart';
+
 class SignInScreen extends StatefulWidget {
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -26,6 +28,7 @@ class _SignInScreenState extends State<SignInScreen> {
   TextEditingController _passwordController = TextEditingController();
 
   final authController = Get.put(AuthController());
+  final _controller = Get.put(TextFieldController());
 
   late StreamSubscription subscription;
   bool isDeviceConnected = false;
@@ -97,17 +100,17 @@ class _SignInScreenState extends State<SignInScreen> {
                       hintText: "Enter your password",
                       suffixIcon: IconButton(
                         icon: Icon(
-                          authController.isPasswordHiden.value
+                          _controller.isPasswordHiden.value
                               ? Icons.visibility
                               : Icons.visibility_off,
                         ),
                         onPressed: () {
-                          authController.isPasswordHiden.value =!
-                              authController.isPasswordHiden.value;
+                          _controller.isPasswordHiden.value =
+                              !_controller.isPasswordHiden.value;
                         },
                       ),
                     ),
-                    obscureText: authController.isPasswordHiden.value,
+                    obscureText: _controller.isPasswordHiden.value,
                   );
                 }),
                 SizedBox(

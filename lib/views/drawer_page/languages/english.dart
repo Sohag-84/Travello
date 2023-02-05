@@ -2,6 +2,8 @@ import 'package:travel_agency/constant/app_strings.dart';
 
 Map<String, String> english = {
   //drawer screen
+  "appName": "Travello",
+  "slogan": "A dew drops on a grain of rice",
   "support": "Support",
   'privacy': "Privacy",
   'faq': "FAQ",

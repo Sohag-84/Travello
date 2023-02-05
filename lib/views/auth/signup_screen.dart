@@ -11,6 +11,8 @@ import 'package:travel_agency/views/auth/login_screen.dart';
 import 'package:travel_agency/views/styles.dart';
 import 'package:travel_agency/views/widgets/violetButton.dart';
 
+import '../../controllers/text_field_controller.dart';
+
 class SignUpScreen extends StatelessWidget {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -19,6 +21,7 @@ class SignUpScreen extends StatelessWidget {
   TextEditingController _addressController = TextEditingController();
 
   final authController = Get.put(AuthController());
+  final _controller = Get.put(TextFieldController());
 
   @override
   Widget build(BuildContext context) {
@@ -76,17 +79,17 @@ class SignUpScreen extends StatelessWidget {
                       hintText: "Enter your password",
                       suffixIcon: IconButton(
                         icon: Icon(
-                          authController.isPasswordHiden.value
+                          _controller.isPasswordHiden.value
                               ? Icons.visibility
                               : Icons.visibility_off,
                         ),
                         onPressed: () {
-                          authController.isPasswordHiden.value =!
-                              authController.isPasswordHiden.value;
+                          _controller.isPasswordHiden.value =!
+                              _controller.isPasswordHiden.value;
                         },
                       ),
                     ),
-                    obscureText: authController.isPasswordHiden.value,
+                    obscureText: _controller.isPasswordHiden.value,
                   );
                 }),
                 TextFormField(
